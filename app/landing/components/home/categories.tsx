@@ -5,27 +5,27 @@ import { FiArrowRight } from "react-icons/fi";
 const categoryList = [
     {
      name: "Running",
-     imgUrl: "./category-running.png",
+     imgUrl: "category-running.png",
     },
     {
      name: "Tenis",
-     imgUrl: "./category-tenis.png",
+     imgUrl: "category-tenis.png",
     },
     {
      name: "Basketball",
-     imgUrl: "./category-basketball.png",
+     imgUrl: "category-basketball.png",
     },
     {
      name: "Football",
-     imgUrl: "./category-football.png",
+     imgUrl: "category-football.png",
     },
     {
      name: "Batminton",
-     imgUrl: "./category-badminton.png",
+     imgUrl: "category-badminton.png",
     },
     {
      name: "Swimming",
-     imgUrl: "./category-swimming.png",
+     imgUrl: "category-swimming.png",
     },
 ];
 

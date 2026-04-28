@@ -8,49 +8,49 @@ const productList = [
         name: "SportOn Product 1",
         category: "Running",
         price: 450000,
-        imgUrl: "./product-3.png",
+        imgUrl: "product-3.png",
     },
     {
         name: "SportOn Product 2",
         category: "Running",
         price: 250000,
-        imgUrl: "./product-2.png",
+        imgUrl: "product-2.png",
     },
     {
         name: "SportOn Product 3",
         category: "Running",
         price: 230000,
-        imgUrl: "./product-1.png",
+        imgUrl: "product-1.png",
     },
     {
         name: "SportOn Product 4",
         category: "Running",
         price: 440000,
-        imgUrl: "./product-4.png",
+        imgUrl: "product-4.png",
     },
     {
         name: "SportOn Product 5",
         category: "Running",
         price: 550000,
-        imgUrl: "./product-5.png",
+        imgUrl: "product-5.png",
     },
     {
         name: "SportOn Product 6",
         category: "Running",
         price: 650000,
-        imgUrl: "./product-6.png",
+        imgUrl: "product-6.png",
     },
     {
         name: "SportOn Product 7",
         category: "Running",
         price: 750000,
-        imgUrl: "./product-7.png",
+        imgUrl: "product-7.png",
     },
     {
         name: "SportOn Product 8",
         category: "Running",
         price: 850000,
-        imgUrl: "./product-8.png",
+        imgUrl: "product-8.png",
     }
 ];
 
