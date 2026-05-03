@@ -35,7 +35,7 @@ const HeroSection = () => {
                     height={950} 
                     alt="image sporton"
                     className="absolute -right-5 top-1/2 -translate-y-1/2"
-                    style={{ width: "auto", height: "auto" }}
+                    style={{ width: "10", height: "10" }}
                     priority
                     />
             </div>
