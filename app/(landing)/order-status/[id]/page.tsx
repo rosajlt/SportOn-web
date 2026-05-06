@@ -14,13 +14,9 @@ const OrderStatus = async ({ params }: TPageProps) => {
             <div className="max-w-5xl mx-auto py-20">
                 <h1 className="text-5xl font-bold text-center mb-8">Order Status</h1>
                 <div className="mt-12">
-                    {
-                        transaction.status === "confirmed" ? (
-                            <OrderConfirmed/>
-                        ) : (
-                            <OrderSubmitted transactionId={id}/>
-                        )
-                    }
+                {transaction.status === "pending" && <OrderSubmitted />}
+                {transaction.status === "confirmed" && <OrderConfirmed />}
+                
                 </div>
             </div>
         </main>

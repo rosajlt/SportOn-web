@@ -4,27 +4,17 @@ import Image from "next/image";
 import Button from "../../ui/button";
 import { FiRefreshCw } from "react-icons/fi";
 import { useState } from "react";
-import { updateTransactionStatus } from "@/app/services/transaction.service";
+import OrderConfirmed from "./order-confirmed";
+
 
 type TOrderSubmitted = {
     transactionId: string;
 };
 
-const OrderSubmitted = ({ transactionId }: TOrderSubmitted) => {
-    const [isLoading, setIsLoading] = useState(false);
-
-    const reloadOrderStatus = async () => {
-        try {
-            setIsLoading(true);
-            // Update status to confirmed
-            await updateTransactionStatus(transactionId, "confirmed");
-            // Reload page
-            window.location.reload();
-        } catch (error) {
-            console.error("Failed to update status:", error);
-            setIsLoading(false);
-        }
-    }
+const OrderSubmitted = () => {
+  const reloadOrderStatus = () => {
+    window.location.reload();
+  };
 
     return (
         <div className="bg-white w-160 p-16 flex flex-col justify-center items-center mx-auto "> 
@@ -42,9 +32,9 @@ const OrderSubmitted = ({ transactionId }: TOrderSubmitted) => {
                 size="normal" 
                 className="w-full " 
                 onClick={reloadOrderStatus}
-                disabled={isLoading}
+                
             >
-                <FiRefreshCw/> {isLoading ? "Loading..." : "Refresh Order Status"}
+                <FiRefreshCw/> Refresh Order Status
             </Button>
         </div>
     )
