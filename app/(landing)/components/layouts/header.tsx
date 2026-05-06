@@ -5,13 +5,14 @@ import Link from "next/link";
 import { FiSearch, FiShoppingBag, FiShoppingCart } from "react-icons/fi";
 import CartPopup from "../../ui/cart-popup";
 import { useState } from "react";
-import Button from "../../ui/button";
+import { useCartStore } from "@/app/hooks/use-cart-store";
 
 const Header = () => {
-    const [isCartPopupOpen, setIsCartPopupOpen] = useState(false);
+    const {items} = useCartStore();
+    const [isCartPopupOpen, setIsCartPopupOpen] = useState(true);
     
     return (
-    <header >
+    <header className="fixed w-full bg-white/50 z-20 backdrop-blur-3xl">
     <div className="flex justify-between gap-10 container mx-auto py-7">
         <Link href="/"></Link>
        <Image src="/logo.svg" alt="sporton logo" width={127} height={30}
@@ -25,9 +26,9 @@ const Header = () => {
          <FiSearch size={24}/>
          <div className="relative cursor-pointer" onClick={() => setIsCartPopupOpen(!isCartPopupOpen)}>
             <FiShoppingBag size={24}/>
-            <div className="bg-primary rounded-full w-3.5 h-3.5 absolute -top-1 -right-1 text-[10px] text-white text-center">
-                3
-            </div> 
+            {items.length > 0 && (<div className="bg-primary rounded-full w-3.5 h-3.5 absolute -top-1 -right-1 text-[10px] text-white text-center">
+                {items.length}
+            </div> )}
          </div>
          {isCartPopupOpen && <CartPopup/>}
        </div>

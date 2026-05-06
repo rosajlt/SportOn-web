@@ -1,11 +1,13 @@
-"use client";
-
 import OrderConfirmed from "../../components/order-status/order-confirmed";
 import OrderSubmitted from "../../components/order-status/order-submitted";
-import { useState } from "react";
+import { getTransactionById } from "@/app/services/transaction.service";
+import { TPageProps } from "../../product/[id]/page";
 
-const OrderStatus = () => {
-    const [isConfirmed, setIsConfirmed] = useState(false);
+const OrderStatus = async ({ params }: TPageProps) => {
+    const { id } = await params;
+
+    const transaction = await getTransactionById(id);
+    console.log("Transaction Data", transaction);
 
     return (
          <main className="bg-gray-100 min-h-[80vh] ">
@@ -13,7 +15,11 @@ const OrderStatus = () => {
                 <h1 className="text-5xl font-bold text-center mb-8">Order Status</h1>
                 <div className="mt-12">
                     {
-                        isConfirmed ? <OrderConfirmed/> : <OrderSubmitted/>
+                        transaction.status === "confirmed" ? (
+                            <OrderConfirmed/>
+                        ) : (
+                            <OrderSubmitted transactionId={id}/>
+                        )
                     }
                 </div>
             </div>

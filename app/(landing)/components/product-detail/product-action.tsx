@@ -4,11 +4,25 @@ import Button from "../../ui/button";
 import {  FiArrowRight, FiChevronDown, FiChevronUp, FiShoppingBag } from "react-icons/fi";
 import { useState } from "react";
 import { useRouter } from "next/dist/client/components/navigation";
+import { useCartStore } from "@/app/hooks/use-cart-store";
+import { Product } from "@/app/types";
 
-const ProductAction = () => {
+type  TProductActionsProps = {
+    product : Product;
+    stock: number
+}
+
+const ProductAction = ({ product, stock }: TProductActionsProps) => {
+    const {addItem} = useCartStore();
     const [qty, setQty] = useState(1);
     const {push} = useRouter();
-    const Checkout = () => {
+
+    const handleAddToCart = () => {
+        addItem(product, qty);
+    }
+
+    const handleCheckout = () => {
+        push("/checkout");
     }
 
     return (
@@ -19,7 +33,7 @@ const ProductAction = () => {
                 </div>
                 <div className="flex flex-col">
                     <button className="border-b border-gray-500 cursor-pointer h-1/2 aspect-square flex items-center justify-center "
-                     onClick={()=> setQty(qty+1) }
+                     onClick={()=> setQty(qty < stock ? qty + 1 : qty) }
                      >
                         <FiChevronUp/>
                     </button>
@@ -30,11 +44,11 @@ const ProductAction = () => {
                     </button>
                 </div>
             </div>
-            <Button size="normal" className="px-20 w-full">
+            <Button size="normal" className="px-20 w-full" onClick={handleAddToCart}>
                 <FiShoppingBag size={24}/>
                 Add to Cart
             </Button>
-            <Button variant="dark" size="normal" className="px-20 w-full" onClick={()=> push("/checkout")}>
+            <Button variant="dark" size="normal" className="px-20 w-full" onClick={handleCheckout}>
                 Checkout Now
                 <FiArrowRight size={24}/>
             </Button>
