@@ -23,7 +23,7 @@ const paymentlist = [
 
 const PaymentOptions = async () => {
     
-const banks = await getAllBank();
+    const banks = await getAllBank();
 
     return (
         <CardWithHeader title="Payment Options">
@@ -38,7 +38,7 @@ const banks = await getAllBank();
                             <div className="text-sm">{payment.accountNumber}</div>
                             <div className="text-sm opacity-70">{payment.accountName}</div>
                         </div>
-                        <div className="ml-auto bg-blue-50 text-gray-800 text-xs h-fit self-center px-2 py-1 ">
+                        <div className="ml-auto bg-blue-50 text-gray-800 text-xs h-fit self-center px-2 py-1">
                             Bank Transfer
                         </div>
                     </div>
