@@ -7,14 +7,14 @@ const OrderStatus = async ({ params }: TPageProps) => {
     const { id } = await params;
 
     const transaction = await getTransactionById(id);
-    console.log("Transaction Data", transaction);
+    console.log("Transaction", transaction);
 
     return (
-         <main className="bg-gray-100 min-h-[80vh] ">
+         <main className="bg-gray-100 min-h-[80vh] pt-20 ">
             <div className="max-w-5xl mx-auto py-20">
                 <h1 className="text-5xl font-bold text-center mb-8">Order Status</h1>
                 <div className="mt-12">
-                {transaction?.status === "paid" ? <OrderConfirmed /> : <OrderSubmitted />}
+                {transaction.status === "paid" ? <OrderConfirmed /> : <OrderSubmitted />}
                 </div>
             </div>
         </main>
