@@ -29,7 +29,7 @@ export interface Bank {
 export interface Transaction {
     _id: string;
     paymentProof: string;
-    status: "pending" | "confirmed" | "rejected",
+    status: "pending" | "paid" | "rejected",
     purchaseIdItems: {
         productId: string;
         qty: number;

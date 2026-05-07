@@ -40,7 +40,7 @@ const PaymentSteps = () => {
             formData.append("image", file);
             formData.append("purchaseIdItems", 
                 JSON.stringify(items.map((item) => ({ productId: item._id, qty: item.qty }))   )
-            )
+            );
             formData.append("totalPayment", totalPrice.toString());
 
             const res = await transactionCheckout(formData);

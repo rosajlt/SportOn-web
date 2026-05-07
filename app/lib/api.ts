@@ -2,7 +2,8 @@ export async function fetchAPI<T>(
     endpoint: string, 
     options?: RequestInit
 ): Promise<T> {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}`, {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://be-sporton.agunacourse.com/api";
+    const res = await fetch(`${apiUrl}${endpoint}`, {
         ...options,
         cache: options?.cache || "no-store", //kita set no-store karena kita ingin mendapatkan data lebih real time atau lebih update
     })
